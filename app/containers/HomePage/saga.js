@@ -1,7 +1,6 @@
 /**
  * Gets the repositories of the user from Github
  */
-
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
@@ -15,8 +14,14 @@ import { makeSelectUsername } from 'containers/HomePage/selectors';
 export function* getRepos() {
   // Select username from store
   const username = yield select(makeSelectUsername());
-  const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
+  // const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
 
+  const requestURL =
+    'http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/team/';
+
+  // TODO: get secrets from .env file
+  // dotenv.config();
+  // const requestURL = process.env.TEMPO_TEAM_URL;
   try {
     // Call our request helper (see 'utils/request')
     const repos = yield call(request, requestURL);
