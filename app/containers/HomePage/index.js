@@ -27,9 +27,9 @@ import Form from './Form';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos } from '../App/actions';
+import { loadRepos, loadTeams } from '../App/actions';
 import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { makeSelectUsername, makeSelectTeam } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -45,11 +45,12 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos } = this.props;
+    const { loading, error, repos, onSelectTeam } = this.props;
     const reposListProps = {
       loading,
       error,
       repos,
+      onSelectTeam,
     };
 
     return (
@@ -104,6 +105,8 @@ HomePage.propTypes = {
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
+  onSelectTeam: PropTypes.func,
+  teamId: PropTypes.string,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -113,6 +116,10 @@ export function mapDispatchToProps(dispatch) {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos());
     },
+    onSelectTeam: evt => {
+      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
+      dispatch(loadTeams());
+    },
   };
 }
 
@@ -121,6 +128,7 @@ const mapStateToProps = createStructuredSelector({
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),
+  teamId: makeSelectTeam(),
 });
 
 const withConnect = connect(
