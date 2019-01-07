@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { CHANGE_USERNAME, SELECT_TEAM } from './constants';
 
 /**
  * Changes the input field of the form
@@ -28,5 +28,19 @@ export function changeUsername(name) {
   return {
     type: CHANGE_USERNAME,
     name,
+  };
+}
+
+/**
+ * Changes the input field of the form
+ *
+ * @param  {name} teamId The id of the selected team
+ *
+ * @return {object}    An action object with a type of SELECT_TEAM
+ */
+export function selectTeam(teamId) {
+  return {
+    type: SELECT_TEAM,
+    teamId,
   };
 }

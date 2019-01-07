@@ -24,9 +24,7 @@ export class TeamListItem extends React.PureComponent {
     // Put together the content of the repository
     const content = (
       <Wrapper>
-        <RepoLink href="https://www.theverge.com/" target="_blank">
-          {`Team name: ${item.name}`}
-        </RepoLink>
+        <RepoLink href={`/${item.id}`}>{`Team name: ${item.name}`}</RepoLink>
         <IssueLink href="https://www.theverge.com/" target="_blank">
           <IssueIcon />
           <FormattedNumber value={match ? match.params.teamId : 69} />
