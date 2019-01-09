@@ -26,11 +26,11 @@ export class TeamListItem extends React.PureComponent {
       <Wrapper>
         <RepoLink
           // href={`/${item.id}`}
-          to={`/team/${item.id}`}
+          to={`/team/${item.name}`}
           onClick={() => selectItem(item.id)}
           value={item.id}
         >
-          {`Team name: ${item.name}`}
+          {item.name}
         </RepoLink>
         <IssueLink href="https://www.theverge.com/" target="_blank">
           <IssueIcon />

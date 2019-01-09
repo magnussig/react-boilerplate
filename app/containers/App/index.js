@@ -40,8 +40,8 @@ export default function App() {
       <Header />
       <Switch>
         <Route path="/features" component={FeaturePage} />
+        <Route path="/team/:teamName?" component={HomePage} />
         <Route path="/" component={HomePage} />
-        <Route path="/team/:teamId?" component={HomePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />

@@ -47,14 +47,19 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos, onSelectTeam } = this.props;
+    const { loading, error, repos, onSelectTeam, match, location } = this.props;
     const reposListProps = {
       loading,
       error,
       repos,
       onSelectTeam,
-      // match,
+      match,
+      location,
     };
+    const showingTeams = location.pathname.includes('team');
+    /* const currTeam = showingTeams && repos ?
+      repos.find(r => r.id === match.params.teamId) : ''; */
+    const currTeam = match.params.teamName;
 
     return (
       <article>
@@ -76,7 +81,9 @@ export class HomePage extends React.PureComponent {
           </CenteredSection>
           <Section>
             <H2>
-              <FormattedMessage {...messages.trymeHeader} />
+              {showingTeams
+                ? `Members of ${currTeam}:`
+                : 'Click Get teams to view all teams!'}
             </H2>
             <Form onSubmit={this.props.onSubmitForm}>
               <label htmlFor="username">
@@ -111,7 +118,8 @@ HomePage.propTypes = {
   onChangeUsername: PropTypes.func,
   onSelectTeam: PropTypes.func,
   teamId: PropTypes.number,
-  // match: PropTypes.object,
+  match: PropTypes.object,
+  location: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
