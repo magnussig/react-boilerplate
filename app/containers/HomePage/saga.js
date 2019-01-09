@@ -4,24 +4,23 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
-
 import request from 'utils/request';
-import { makeSelectUsername } from 'containers/HomePage/selectors';
+import { makeSelectUsername } from './selectors';
+
+// import { makeSelectTeam } from 'containers/HomePage/selectors';
 
 /**
  * Github repos request/response handler
  */
 export function* getRepos() {
-  // Select username from store
+  // Select teamId from store
+  // const teamId = yield select(makeSelectTeam());
   const username = yield select(makeSelectUsername());
-  // const requestURL = `https://api.github.com/users/${username}/repos?type=all&sort=updated`;
-
+  // TODO: get secrets (like URL) from .env file
   const requestURL =
     'http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/team/';
-
-  // TODO: get secrets from .env file
-  // dotenv.config();
-  // const requestURL = process.env.TEMPO_TEAM_URL;
+  // if teamId has been set, get team, else get all teams
+  // if (teamId) requestURL += teamId
   try {
     // Call our request helper (see 'utils/request')
     const repos = yield call(request, requestURL);

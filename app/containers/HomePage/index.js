@@ -27,7 +27,7 @@ import Form from './Form';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos, loadTeams } from '../App/actions';
+import { loadRepos } from '../App/actions';
 import { changeUsername } from './actions';
 import { makeSelectUsername, makeSelectTeam } from './selectors';
 import reducer from './reducer';
@@ -114,11 +114,11 @@ export function mapDispatchToProps(dispatch) {
     onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos());
+      dispatch(loadRepos(evt.target.value));
     },
     onSelectTeam: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadTeams());
+      dispatch(loadRepos(evt.target.value));
     },
   };
 }
