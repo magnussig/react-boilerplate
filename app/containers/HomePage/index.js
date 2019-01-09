@@ -53,6 +53,7 @@ export class HomePage extends React.PureComponent {
       error,
       repos,
       onSelectTeam,
+      // match,
     };
 
     return (
@@ -110,6 +111,7 @@ HomePage.propTypes = {
   onChangeUsername: PropTypes.func,
   onSelectTeam: PropTypes.func,
   teamId: PropTypes.number,
+  // match: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {

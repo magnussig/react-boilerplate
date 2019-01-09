@@ -26,6 +26,7 @@ export class TeamListItem extends React.PureComponent {
       <Wrapper>
         <RepoLink
           // href={`/${item.id}`}
+          to={`/team/${item.id}`}
           onClick={() => selectItem(item.id)}
           value={item.id}
         >
