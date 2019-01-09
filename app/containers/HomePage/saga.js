@@ -5,26 +5,33 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_REPOS } from 'containers/App/constants';
 import { reposLoaded, repoLoadingError } from 'containers/App/actions';
 import request from 'utils/request';
-import { makeSelectUsername } from './selectors';
-
-// import { makeSelectTeam } from 'containers/HomePage/selectors';
+import { makeSelectTeam } from 'containers/App/selectors';
 
 /**
  * Github repos request/response handler
  */
 export function* getRepos() {
   // Select teamId from store
-  // const teamId = yield select(makeSelectTeam());
-  const username = yield select(makeSelectUsername());
+  const teamId = yield select(makeSelectTeam());
+  // get team members if teamId has been set
+  const getTeamMembers = Number.isInteger(teamId);
   // TODO: get secrets (like URL) from .env file
-  const requestURL =
+  let requestURL =
     'http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/team/';
   // if teamId has been set, get team, else get all teams
-  // if (teamId) requestURL += teamId
+  if (getTeamMembers) requestURL += teamId;
   try {
     // Call our request helper (see 'utils/request')
-    const repos = yield call(request, requestURL);
-    yield put(reposLoaded(repos, username));
+    let info = yield call(request, requestURL);
+    if (getTeamMembers) {
+      const users = yield call(
+        request,
+        'http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/user/',
+      );
+      const usersInTeam = users.filter(u => info.members.includes(u.id));
+      info = usersInTeam;
+    }
+    yield put(reposLoaded(info, ''));
   } catch (err) {
     yield put(repoLoadingError(err));
   }

@@ -18,8 +18,10 @@ import {
   makeSelectRepos,
   makeSelectLoading,
   makeSelectError,
+  makeSelectTeam,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
+import A from 'components/A';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
@@ -29,7 +31,7 @@ import Section from './Section';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
 import { changeUsername } from './actions';
-import { makeSelectUsername, makeSelectTeam } from './selectors';
+import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -88,6 +90,7 @@ export class HomePage extends React.PureComponent {
                   value={this.props.username}
                   onChange={this.props.onChangeUsername}
                 />
+                <A onClick={this.props.onSubmitForm}>Get teams</A>
               </label>
             </Form>
             <ReposList {...reposListProps} />
@@ -106,7 +109,7 @@ HomePage.propTypes = {
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
   onSelectTeam: PropTypes.func,
-  teamId: PropTypes.string,
+  teamId: PropTypes.number,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -116,10 +119,7 @@ export function mapDispatchToProps(dispatch) {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos(evt.target.value));
     },
-    onSelectTeam: evt => {
-      if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos(evt.target.value));
-    },
+    onSelectTeam: teamId => dispatch(loadRepos(teamId)),
   };
 }
 

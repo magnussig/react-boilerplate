@@ -15,7 +15,7 @@ export default defineMessages({
   startProjectMessage: {
     id: `${scope}.start_project.message`,
     defaultMessage:
-      'This is a fork, with some adaptions. Quickest and simplest to get up and running with a similar stack as Tempo.',
+      'This is a fork, with some adaptions. Quickest and simplest way to get up and running with a similar stack as Tempo.',
   },
   trymeHeader: {
     id: `${scope}.tryme.header`,

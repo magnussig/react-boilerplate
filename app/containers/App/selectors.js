@@ -27,6 +27,9 @@ const makeSelectLocation = () =>
     routerState.get('location').toJS(),
   );
 
+const makeSelectTeam = () =>
+  createSelector(selectGlobal, globalState => globalState.get('teamId'));
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -34,4 +37,5 @@ export {
   makeSelectError,
   makeSelectRepos,
   makeSelectLocation,
+  makeSelectTeam,
 };
