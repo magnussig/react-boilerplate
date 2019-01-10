@@ -19,17 +19,12 @@ import Wrapper from './Wrapper';
 
 export class TeamListItem extends React.PureComponent {
   render() {
-    const { item, match, selectItem } = this.props;
-
+    const { item, match, selectItem, isTeam } = this.props;
+    const link = isTeam ? `/user/${item.name}` : `/team/${item.name}`;
     // Put together the content of the repository
     const content = (
       <Wrapper>
-        <RepoLink
-          // href={`/${item.id}`}
-          to={`/team/${item.name}`}
-          onClick={() => selectItem(item.id)}
-          value={item.id}
-        >
+        <RepoLink to={link} onClick={() => selectItem(item.id)} value={item.id}>
           {item.name}
         </RepoLink>
         <IssueLink href="https://www.theverge.com/" target="_blank">
@@ -48,6 +43,7 @@ TeamListItem.propTypes = {
   item: PropTypes.object,
   match: PropTypes.object,
   selectItem: PropTypes.func,
+  isTeam: PropTypes.bool,
 };
 
 export default connect(

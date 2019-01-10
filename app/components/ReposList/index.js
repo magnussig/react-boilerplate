@@ -6,7 +6,7 @@ import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
 import TeamListItem from 'containers/TeamListItem';
 
-function ReposList({ loading, error, repos, onSelectTeam }) {
+function ReposList({ loading, error, repos, onSelectTeam, isTeam }) {
   if (loading) {
     return <List component={LoadingIndicator} />;
   }
@@ -20,7 +20,12 @@ function ReposList({ loading, error, repos, onSelectTeam }) {
 
   if (repos !== false) {
     return (
-      <List items={repos} component={TeamListItem} selectItem={onSelectTeam} />
+      <List
+        items={repos}
+        component={TeamListItem}
+        selectItem={onSelectTeam}
+        isTeam={isTeam}
+      />
     );
   }
 
@@ -32,6 +37,7 @@ ReposList.propTypes = {
   error: PropTypes.any,
   repos: PropTypes.any,
   onSelectTeam: PropTypes.any,
+  isTeam: PropTypes.bool,
 };
 
 export default ReposList;

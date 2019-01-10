@@ -15,6 +15,7 @@ function List(props) {
         key={`item-${item.id}`}
         item={item}
         selectItem={props.selectItem}
+        isTeam={props.isTeam}
       />
     ));
   } else {
@@ -33,6 +34,7 @@ List.propTypes = {
   component: PropTypes.func.isRequired,
   items: PropTypes.array,
   selectItem: PropTypes.func,
+  isTeam: PropTypes.bool,
 };
 
 export default List;

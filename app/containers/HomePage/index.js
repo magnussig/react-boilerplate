@@ -47,7 +47,10 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos, onSelectTeam, match, location } = this.props;
+    const { loading, error, repos, match, location } = this.props;
+    let { onSelectTeam } = this.props;
+    const isTeam = location.pathname.includes('team');
+    if (isTeam) onSelectTeam = () => {};
     const reposListProps = {
       loading,
       error,
@@ -55,10 +58,8 @@ export class HomePage extends React.PureComponent {
       onSelectTeam,
       match,
       location,
+      isTeam,
     };
-    const showingTeams = location.pathname.includes('team');
-    /* const currTeam = showingTeams && repos ?
-      repos.find(r => r.id === match.params.teamId) : ''; */
     const currTeam = match.params.teamName;
 
     return (
@@ -81,7 +82,7 @@ export class HomePage extends React.PureComponent {
           </CenteredSection>
           <Section>
             <H2>
-              {showingTeams
+              {isTeam
                 ? `Members of ${currTeam}:`
                 : 'Click Get teams to view all teams!'}
             </H2>
