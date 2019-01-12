@@ -21,7 +21,7 @@
   "boilerplate.containers.FeaturePage.state_management.header": "Predictable state management",
   "boilerplate.containers.FeaturePage.state_management.message": "Unidirectional data flow allows for change logging and time travel\n    debugging.",
   "boilerplate.containers.HomePage.start_project.header": "Tempo teams and users demo by Magnús",
-  "boilerplate.containers.HomePage.start_project.message": "This is a fork, with some adaptions. Quickest and simplest way to get up and running with a similar stack as Tempo.",
+  "boilerplate.containers.HomePage.start_project.message": "Using this boilerplate was the quickest and simplest way to get up and running with a similar stack as Tempo.",
   "boilerplate.containers.HomePage.tryme.atPrefix": " ",
   "boilerplate.containers.HomePage.tryme.header": "Try me!",
   "boilerplate.containers.HomePage.tryme.message": "Filter teams by teamname ",
