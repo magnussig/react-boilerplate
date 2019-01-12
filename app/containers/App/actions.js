@@ -25,6 +25,7 @@ import {
   SET_ALL_TEAMS,
   SET_ALL_USERS,
   SET_CURR_TEAM_LEAD,
+  CHANGE_USERNAME,
 } from './constants';
 
 /**
@@ -108,5 +109,12 @@ export function setCurrTeamLead(lead) {
   return {
     type: SET_CURR_TEAM_LEAD,
     lead,
+  };
+}
+
+export function changeUsername(username) {
+  return {
+    type: CHANGE_USERNAME,
+    username,
   };
 }

@@ -16,14 +16,6 @@ class Header extends React.Component {
         <A href="https://www.tempo.io/jira-project-management-tool">
           <Img src={Banner} alt="Tempo - Logo" />
         </A>
-        <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
-        </NavBar>
       </div>
     );
   }

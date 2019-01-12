@@ -22,10 +22,12 @@ import {
   SET_ALL_TEAMS,
   SET_ALL_USERS,
   SET_CURR_TEAM_LEAD,
+  CHANGE_USERNAME,
 } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
+  username: '',
   loading: false,
   error: false,
   currentUser: false,
@@ -42,6 +44,9 @@ const initialState = fromJS({
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
+    case CHANGE_USERNAME:
+      return state
+        .set('username', action.username);
     case LOAD_REPOS:
       return state
         .set('loading', true)

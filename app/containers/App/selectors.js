@@ -45,6 +45,9 @@ const makeSelectAllUsers = () =>
 const makeSelectCurrTeamLead = () =>
   createSelector(selectGlobal, globalState => globalState.get('currTeamLead'));
 
+const makeSelectUsername = () =>
+  createSelector(selectGlobal, globalState => globalState.get('username'));
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -58,4 +61,5 @@ export {
   makeSelectAllTeams,
   makeSelectAllUsers,
   makeSelectCurrTeamLead,
+  makeSelectUsername,
 };

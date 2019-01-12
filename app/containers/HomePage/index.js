@@ -22,6 +22,7 @@ import {
   makeSelectAllTeams,
   makeSelectAllUsers,
   makeSelectCurrTeamLead,
+  makeSelectUsername,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
 import H3 from 'components/H3';
@@ -33,9 +34,7 @@ import Form from './Form';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+import { loadRepos, changeUsername } from '../App/actions';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -51,10 +50,12 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos, match, location, currTeamLead } = this.props;
+    const { loading, error, repos, match, location, currTeamLead, username } = this.props;
     let { onSelectTeam } = this.props;
     const isTeam = location.pathname.includes('team');
     if (isTeam) onSelectTeam = () => {};
+    const reposFiltered = username === '' ?
+      repos : repos.filter(r => r.name.toLowerCase().includes(username.toLowerCase()));
 
     return (
       <article>
@@ -97,7 +98,7 @@ export class HomePage extends React.PureComponent {
             <ReposList
               loading={loading}
               error={error}
-              items={repos}
+              items={reposFiltered}
               onSelect={onSelectTeam}
               isTeam={isTeam} // TODO: change this to route
               location={location}
@@ -129,7 +130,8 @@ HomePage.propTypes = {
 
 export function mapDispatchToProps(dispatch) {
   return {
-    onChangeUsername: evt => dispatch(changeUsername(evt.target.value)),
+    onChangeUsername: (evt) =>
+      dispatch(changeUsername(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadRepos(evt.target.value));

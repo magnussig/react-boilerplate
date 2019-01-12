@@ -18,3 +18,4 @@ export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
 export const SET_ALL_TEAMS = 'boilerplate/App/SET_ALL_TEAMS';
 export const SET_ALL_USERS = 'boilerplate/App/SET_ALL_USERS';
 export const SET_CURR_TEAM_LEAD = 'boilerplate/App/SET_CURR_TEAM_LEAD';
+export const CHANGE_USERNAME = 'boilerplate/App/CHANGE_USERNAME';
