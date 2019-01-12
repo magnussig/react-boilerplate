@@ -88,7 +88,7 @@ export class HomePage extends React.PureComponent {
                 <Input
                   id="username"
                   type="text"
-                  placeholder="mxstbr"
+                  placeholder="blablabla"
                   value={this.props.username}
                   onChange={this.props.onChangeUsername}
                 />
