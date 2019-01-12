@@ -12,9 +12,9 @@
 export const LOAD_USERS_SUCCESS = 'boilerplate/App/LOAD_USERS_SUCCESS';
 export const LOAD_USERS_ERROR = 'boilerplate/App/LOAD_USERS_ERROR';
 export const LOAD_USERS = 'boilerplate/App/LOAD_USERS';
-export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
+export const LOAD_INFO = 'boilerplate/App/LOAD_INFO';
+export const LOAD_INFO_SUCCESS = 'boilerplate/App/LOAD_INFO_SUCCESS';
+export const LOAD_INFO_ERROR = 'boilerplate/App/LOAD_INFO_ERROR';
 export const SET_ALL_TEAMS = 'boilerplate/App/SET_ALL_TEAMS';
 export const SET_ALL_USERS = 'boilerplate/App/SET_ALL_USERS';
 export const SET_CURR_TEAM_LEAD = 'boilerplate/App/SET_CURR_TEAM_LEAD';

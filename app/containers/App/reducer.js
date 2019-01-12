@@ -13,9 +13,9 @@
 import { fromJS } from 'immutable';
 
 import {
-  LOAD_REPOS_SUCCESS,
-  LOAD_REPOS,
-  LOAD_REPOS_ERROR,
+  LOAD_INFO_SUCCESS,
+  LOAD_INFO,
+  LOAD_INFO_ERROR,
   LOAD_USERS_SUCCESS,
   LOAD_USERS,
   LOAD_USERS_ERROR,
@@ -47,18 +47,18 @@ function appReducer(state = initialState, action) {
     case CHANGE_USERNAME:
       return state
         .set('username', action.username);
-    case LOAD_REPOS:
+    case LOAD_INFO:
       return state
         .set('loading', true)
         .set('error', false)
         .set('teamId', action.teamId)
         .setIn(['userData', 'repositories'], false);
-    case LOAD_REPOS_SUCCESS:
+    case LOAD_INFO_SUCCESS:
       return state
         .setIn(['userData', 'repositories'], action.info)
         .set('loading', false)
         .set('currentUser', action.username);
-    case LOAD_REPOS_ERROR:
+    case LOAD_INFO_ERROR:
       return state.set('error', action.error).set('loading', false);
     case LOAD_USERS:
       return state

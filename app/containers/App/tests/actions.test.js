@@ -1,4 +1,4 @@
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from '../constants';
+import { LOAD_INFO, LOAD_INFO_SUCCESS, LOAD_INFO_ERROR } from '../constants';
 
 import { loadInfo, reposLoaded, repoLoadingError } from '../actions';
 
@@ -6,7 +6,7 @@ describe('App Actions', () => {
   describe('loadInfo', () => {
     it('should return the correct type', () => {
       const expectedResult = {
-        type: LOAD_REPOS,
+        type: LOAD_INFO,
       };
 
       expect(loadInfo()).toEqual(expectedResult);
@@ -18,7 +18,7 @@ describe('App Actions', () => {
       const fixture = ['Test'];
       const username = 'test';
       const expectedResult = {
-        type: LOAD_REPOS_SUCCESS,
+        type: LOAD_INFO_SUCCESS,
         info: fixture,
         username,
       };
@@ -33,7 +33,7 @@ describe('App Actions', () => {
         msg: 'Something went wrong!',
       };
       const expectedResult = {
-        type: LOAD_REPOS_ERROR,
+        type: LOAD_INFO_ERROR,
         error: fixture,
       };
 
