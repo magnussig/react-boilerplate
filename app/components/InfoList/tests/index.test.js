@@ -5,11 +5,11 @@ import { IntlProvider } from 'react-intl';
 import RepoListItem from 'containers/RepoListItem';
 import List from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
-import ReposList from '../index';
+import InfoList from '../index';
 
-describe('<ReposList />', () => {
+describe('<InfoList />', () => {
   it('should render the loading indicator when its loading', () => {
-    const renderedComponent = shallow(<ReposList loading />);
+    const renderedComponent = shallow(<InfoList loading />);
     expect(
       renderedComponent.contains(<List component={LoadingIndicator} />),
     ).toEqual(true);
@@ -18,7 +18,7 @@ describe('<ReposList />', () => {
   it('should render an error if loading failed', () => {
     const renderedComponent = mount(
       <IntlProvider locale="en">
-        <ReposList loading={false} error={{ message: 'Loading failed!' }} />
+        <InfoList loading={false} error={{ message: 'Loading failed!' }} />
       </IntlProvider>,
     );
     expect(renderedComponent.text()).toMatch(/Something went wrong/);
@@ -37,7 +37,7 @@ describe('<ReposList />', () => {
       },
     ];
     const renderedComponent = shallow(
-      <ReposList info={info} error={false} />,
+      <InfoList info={info} error={false} />,
     );
 
     expect(
@@ -49,7 +49,7 @@ describe('<ReposList />', () => {
 
   it('should not render anything if nothing interesting is provided', () => {
     const renderedComponent = shallow(
-      <ReposList info={false} error={false} loading={false} />,
+      <InfoList info={false} error={false} loading={false} />,
     );
 
     expect(renderedComponent.html()).toEqual(null);

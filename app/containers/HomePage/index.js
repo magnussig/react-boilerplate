@@ -27,7 +27,7 @@ import {
 import H2 from 'components/H2';
 import H3 from 'components/H3';
 import A from 'components/A';
-import ReposList from 'components/ReposList';
+import InfoList from 'components/InfoList';
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
@@ -102,7 +102,7 @@ export class HomePage extends React.PureComponent {
                 <A onClick={this.props.onSubmitForm}>Get teams</A>
               </label>
             </Form>
-            <ReposList
+            <InfoList
               loading={loading}
               error={error}
               items={reposFiltered}

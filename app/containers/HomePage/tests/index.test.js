@@ -6,7 +6,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 
-import ReposList from 'components/ReposList';
+import InfoList from 'components/InfoList';
 import { HomePage, mapDispatchToProps } from '../index';
 import { changeUsername } from '../actions';
 import { loadInfo } from '../../App/actions';
@@ -18,7 +18,7 @@ describe('<HomePage />', () => {
     );
     expect(
       renderedComponent.contains(
-        <ReposList loading error={false} info={[]} />,
+        <InfoList loading error={false} info={[]} />,
       ),
     ).toEqual(true);
   });
