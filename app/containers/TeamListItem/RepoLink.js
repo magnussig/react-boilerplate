@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const RepoLink = styled(Link)`
+const InfoLink = styled(Link)`
   height: 100%;
   color: black;
   display: flex;
@@ -9,4 +9,4 @@ const RepoLink = styled(Link)`
   width: 100%;
 `;
 
-export default RepoLink;
+export default InfoLink;
