@@ -8,7 +8,7 @@ import request from 'utils/request';
 import { makeSelectUserId } from 'containers/App/selectors';
 
 /**
- * Github repos request/response handler
+ * Github info request/response handler
  */
 export function* getUsers() {
   // Select userId from store

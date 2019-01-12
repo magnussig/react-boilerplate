@@ -91,7 +91,7 @@ export function mapDispatchToProps(dispatch) {
 
 const mapStateToProps = createStructuredSelector({
   users: makeSelectUsers(),
-  repos: makeSelectRepos(),
+  info: makeSelectRepos(),
   allTeams: makeSelectAllTeams(),
   loading: makeSelectLoading(),
 });

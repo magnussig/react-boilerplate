@@ -12,18 +12,18 @@ import { changeUsername } from '../actions';
 import { loadRepos } from '../../App/actions';
 
 describe('<HomePage />', () => {
-  it('should render the repos list', () => {
+  it('should render the info list', () => {
     const renderedComponent = shallow(
-      <HomePage loading error={false} repos={[]} />,
+      <HomePage loading error={false} info={[]} />,
     );
     expect(
       renderedComponent.contains(
-        <ReposList loading error={false} repos={[]} />,
+        <ReposList loading error={false} info={[]} />,
       ),
     ).toEqual(true);
   });
 
-  it('should render fetch the repos on mount if a username exists', () => {
+  it('should render fetch the info on mount if a username exists', () => {
     const submitSpy = jest.fn();
     mount(
       <IntlProvider locale="en">

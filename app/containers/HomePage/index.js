@@ -41,21 +41,28 @@ import saga from './saga';
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
   /**
-   * when initial state username is not null, submit the form to load repos
+   * when initial state username is not null, submit the form to load info
    */
   componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
+    this.unlisten = this.props.history.listen((location, action) => {
+      console.log("on route change");
+    });
+  }
+
+  componentWillUnmount() {
+    this.unlisten();
   }
 
   render() {
-    const { loading, error, repos, match, location, currTeamLead, username } = this.props;
+    const { loading, error, info, match, location, currTeamLead, username } = this.props;
     let { onSelectTeam } = this.props;
     const isTeam = location.pathname.includes('team');
     if (isTeam) onSelectTeam = () => {};
     const reposFiltered = username === '' ?
-      repos : repos.filter(r => r.name.toLowerCase().includes(username.toLowerCase()));
+      info : info.filter(r => r.name.toLowerCase().includes(username.toLowerCase()));
 
     return (
       <article>
@@ -114,7 +121,7 @@ export class HomePage extends React.PureComponent {
 HomePage.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
-  repos: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  info: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
@@ -141,7 +148,7 @@ export function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
+  info: makeSelectRepos(),
   username: makeSelectUsername(),
   loading: makeSelectLoading(),
   error: makeSelectError(),

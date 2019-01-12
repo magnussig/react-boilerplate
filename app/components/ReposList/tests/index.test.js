@@ -25,7 +25,7 @@ describe('<ReposList />', () => {
   });
 
   it('should render the repositories if loading was successful', () => {
-    const repos = [
+    const info = [
       {
         owner: {
           login: 'mxstbr',
@@ -37,19 +37,19 @@ describe('<ReposList />', () => {
       },
     ];
     const renderedComponent = shallow(
-      <ReposList repos={repos} error={false} />,
+      <ReposList info={info} error={false} />,
     );
 
     expect(
       renderedComponent.contains(
-        <List items={repos} component={RepoListItem} />,
+        <List items={info} component={RepoListItem} />,
       ),
     ).toEqual(true);
   });
 
   it('should not render anything if nothing interesting is provided', () => {
     const renderedComponent = shallow(
-      <ReposList repos={false} error={false} loading={false} />,
+      <ReposList info={false} error={false} loading={false} />,
     );
 
     expect(renderedComponent.html()).toEqual(null);
