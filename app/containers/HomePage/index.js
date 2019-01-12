@@ -34,7 +34,7 @@ import Form from './Form';
 import Input from './Input';
 import Section from './Section';
 import messages from './messages';
-import { loadRepos, changeUsername } from '../App/actions';
+import { loadInfo, changeUsername } from '../App/actions';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -141,9 +141,9 @@ export function mapDispatchToProps(dispatch) {
       dispatch(changeUsername(evt.target.value)),
     onSubmitForm: evt => {
       if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadRepos(evt.target.value));
+      dispatch(loadInfo(evt.target.value));
     },
-    onSelectTeam: teamId => dispatch(loadRepos(teamId)),
+    onSelectTeam: teamId => dispatch(loadInfo(teamId)),
   };
 }
 

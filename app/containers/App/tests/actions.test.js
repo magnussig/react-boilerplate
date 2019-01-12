@@ -1,15 +1,15 @@
 import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from '../constants';
 
-import { loadRepos, reposLoaded, repoLoadingError } from '../actions';
+import { loadInfo, reposLoaded, repoLoadingError } from '../actions';
 
 describe('App Actions', () => {
-  describe('loadRepos', () => {
+  describe('loadInfo', () => {
     it('should return the correct type', () => {
       const expectedResult = {
         type: LOAD_REPOS,
       };
 
-      expect(loadRepos()).toEqual(expectedResult);
+      expect(loadInfo()).toEqual(expectedResult);
     });
   });
 

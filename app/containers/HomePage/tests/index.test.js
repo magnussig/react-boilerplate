@@ -9,7 +9,7 @@ import { IntlProvider } from 'react-intl';
 import ReposList from 'components/ReposList';
 import { HomePage, mapDispatchToProps } from '../index';
 import { changeUsername } from '../actions';
-import { loadRepos } from '../../App/actions';
+import { loadInfo } from '../../App/actions';
 
 describe('<HomePage />', () => {
   it('should render the info list', () => {
@@ -85,11 +85,11 @@ describe('<HomePage />', () => {
         expect(result.onSubmitForm).toBeDefined();
       });
 
-      it('should dispatch loadRepos when called', () => {
+      it('should dispatch loadInfo when called', () => {
         const dispatch = jest.fn();
         const result = mapDispatchToProps(dispatch);
         result.onSubmitForm();
-        expect(dispatch).toHaveBeenCalledWith(loadRepos());
+        expect(dispatch).toHaveBeenCalledWith(loadInfo());
       });
 
       it('should preventDefault if called with event', () => {

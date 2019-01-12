@@ -33,7 +33,7 @@ import {
  *
  * @return {object} An action object with a type of LOAD_REPOS
  */
-export function loadRepos(teamId) {
+export function loadInfo(teamId) {
   return {
     type: LOAD_REPOS,
     teamId,
