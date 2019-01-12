@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getInfo Saga should call the repoLoadingError action if the response errors 1`] = `
+exports[`getInfo Saga should call the infoLoadingError action if the response errors 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "SELECT": Object {
@@ -10,7 +10,7 @@ Object {
 }
 `;
 
-exports[`getInfo Saga should call the repoLoadingError action if the response errors 2`] = `
+exports[`getInfo Saga should call the infoLoadingError action if the response errors 2`] = `
 Object {
   "@@redux-saga/IO": true,
   "CALL": Object {
@@ -23,7 +23,7 @@ Object {
 }
 `;
 
-exports[`getInfo Saga should dispatch the reposLoaded action if it requests the data successfully 1`] = `
+exports[`getInfo Saga should dispatch the infoLoaded action if it requests the data successfully 1`] = `
 Object {
   "@@redux-saga/IO": true,
   "SELECT": Object {
@@ -33,7 +33,7 @@ Object {
 }
 `;
 
-exports[`getInfo Saga should dispatch the reposLoaded action if it requests the data successfully 2`] = `
+exports[`getInfo Saga should dispatch the infoLoaded action if it requests the data successfully 2`] = `
 Object {
   "@@redux-saga/IO": true,
   "CALL": Object {

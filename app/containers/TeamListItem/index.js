@@ -14,24 +14,24 @@ import { makeSelectCurrentUser } from 'containers/App/selectors';
 import ListItem from 'components/ListItem';
 import IssueIcon from './IssueIcon';
 import IssueLink from './IssueLink';
-import RepoLink from './RepoLink';
+import InfoLink from './InfoLink';
 import Wrapper from './Wrapper';
 
 export class TeamListItem extends React.PureComponent {
   render() {
     const { item, match, selectItem, isTeam } = this.props;
     const link = isTeam ? `/user/${item.id}` : `/team/${item.name}`;
-    // Put together the content of the repository
+    // Put together the content
     const content = (
       <Wrapper>
-        <RepoLink to={link} onClick={() => selectItem(item.id)} value={item.id}>
+        <InfoLink to={link} onClick={() => selectItem(item.id)} value={item.id}>
           {item.name}
-        </RepoLink>
+        </InfoLink>
       </Wrapper>
     );
 
     // Render the content into a list item
-    return <ListItem key={`repo-list-item-${item.full_name}`} item={content} />;
+    return <ListItem key={`info-list-item-${item.full_name}`} item={content} />;
   }
 }
 

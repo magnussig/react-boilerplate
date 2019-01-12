@@ -206,7 +206,7 @@ Check out [`HomePage/saga.js`](https://github.com/react-boilerplate/react-boiler
 
 - You can `fork` a saga to send it to the background. That way, your code will not get blocked even when the saga is continuously running.
 - `takeLatest` is used for listening for a particular action. In this case, it will wait for a `LOAD_INFO` action. Whenever you disptach this action, the saga will understand that you want to fetch info from github's public API by calling `getInfo()`.
-- If the API successfully returns some data, a `reposLoaded()` action will be dispatched which carries the data. When redux store receives this action, [a reducer](https://github.com/react-boilerplate/react-boilerplate/blob/master/app/containers/App/reducer.js) will set incoming data in the new state tree.
+- If the API successfully returns some data, a `infoLoaded()` action will be dispatched which carries the data. When redux store receives this action, [a reducer](https://github.com/react-boilerplate/react-boilerplate/blob/master/app/containers/App/reducer.js) will set incoming data in the new state tree.
 
 _An update has occurred!_ `mapStateToProps()` will be triggered. `<HomePage />` will receive the new data and rerender.
 

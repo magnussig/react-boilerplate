@@ -48,7 +48,7 @@ export function loadInfo(teamId) {
  *
  * @return {object}      An action object with a type of LOAD_INFO_SUCCESS passing the info
  */
-export function reposLoaded(info, username) {
+export function infoLoaded(info, username) {
   return {
     type: LOAD_INFO_SUCCESS,
     info,
@@ -63,7 +63,7 @@ export function reposLoaded(info, username) {
  *
  * @return {object}       An action object with a type of LOAD_INFO_ERROR passing the error
  */
-export function repoLoadingError(error) {
+export function infoLoadingError(error) {
   return {
     type: LOAD_INFO_ERROR,
     error,

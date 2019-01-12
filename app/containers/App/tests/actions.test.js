@@ -1,6 +1,6 @@
 import { LOAD_INFO, LOAD_INFO_SUCCESS, LOAD_INFO_ERROR } from '../constants';
 
-import { loadInfo, reposLoaded, repoLoadingError } from '../actions';
+import { loadInfo, infoLoaded, infoLoadingError } from '../actions';
 
 describe('App Actions', () => {
   describe('loadInfo', () => {
@@ -13,7 +13,7 @@ describe('App Actions', () => {
     });
   });
 
-  describe('reposLoaded', () => {
+  describe('infoLoaded', () => {
     it('should return the correct type and the passed info', () => {
       const fixture = ['Test'];
       const username = 'test';
@@ -23,11 +23,11 @@ describe('App Actions', () => {
         username,
       };
 
-      expect(reposLoaded(fixture, username)).toEqual(expectedResult);
+      expect(infoLoaded(fixture, username)).toEqual(expectedResult);
     });
   });
 
-  describe('repoLoadingError', () => {
+  describe('infoLoadingError', () => {
     it('should return the correct type and the error', () => {
       const fixture = {
         msg: 'Something went wrong!',
@@ -37,7 +37,7 @@ describe('App Actions', () => {
         error: fixture,
       };
 
-      expect(repoLoadingError(fixture)).toEqual(expectedResult);
+      expect(infoLoadingError(fixture)).toEqual(expectedResult);
     });
   });
 });

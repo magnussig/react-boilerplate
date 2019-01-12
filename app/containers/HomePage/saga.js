@@ -4,8 +4,8 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_INFO } from 'containers/App/constants';
 import {
-  reposLoaded,
-  repoLoadingError,
+  infoLoaded,
+  infoLoadingError,
   setAllTeams,
   setAllUsers,
   setCurrTeamLead,
@@ -42,9 +42,9 @@ export function* getInfo() {
     } else {
       yield put(setAllTeams(info));
     }
-    yield put(reposLoaded(info, ''));
+    yield put(infoLoaded(info, ''));
   } catch (err) {
-    yield put(repoLoadingError(err));
+    yield put(infoLoadingError(err));
   }
 }
 

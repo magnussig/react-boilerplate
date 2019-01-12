@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 
 import appReducer from '../reducer';
-import { loadInfo, reposLoaded, repoLoadingError } from '../actions';
+import { loadInfo, infoLoaded, infoLoadingError } from '../actions';
 
 describe('appReducer', () => {
   let state;
@@ -30,7 +30,7 @@ describe('appReducer', () => {
     expect(appReducer(state, loadInfo())).toEqual(expectedResult);
   });
 
-  it('should handle the reposLoaded action correctly', () => {
+  it('should handle the infoLoaded action correctly', () => {
     const fixture = [
       {
         name: 'My Repo',
@@ -42,18 +42,18 @@ describe('appReducer', () => {
       .set('loading', false)
       .set('currentUser', username);
 
-    expect(appReducer(state, reposLoaded(fixture, username))).toEqual(
+    expect(appReducer(state, infoLoaded(fixture, username))).toEqual(
       expectedResult,
     );
   });
 
-  it('should handle the repoLoadingError action correctly', () => {
+  it('should handle the infoLoadingError action correctly', () => {
     const fixture = {
       msg: 'Not found',
     };
     const expectedResult = state.set('error', fixture).set('loading', false);
 
-    expect(appReducer(state, repoLoadingError(fixture))).toEqual(
+    expect(appReducer(state, infoLoadingError(fixture))).toEqual(
       expectedResult,
     );
   });
