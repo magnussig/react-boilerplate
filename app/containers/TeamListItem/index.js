@@ -27,10 +27,6 @@ export class TeamListItem extends React.PureComponent {
         <RepoLink to={link} onClick={() => selectItem(item.id)} value={item.id}>
           {item.name}
         </RepoLink>
-        <IssueLink href="https://www.theverge.com/" target="_blank">
-          <IssueIcon />
-          <FormattedNumber value={match ? match.params.teamId : 69} />
-        </IssueLink>
       </Wrapper>
     );
 
