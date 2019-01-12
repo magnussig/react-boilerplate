@@ -49,7 +49,6 @@ export class FeaturePage extends React.Component {
         <p>
           The users real name is: {users.name}
           <br />
-          Leader stúss!
         </p>
         {users && allTeams && (
           <div>
