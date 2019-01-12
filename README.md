@@ -10,3 +10,5 @@ This is a fork of https://github.com/react-boilerplate/react-boilerplate for Tem
 5.  Run `npm run clean` to delete the example app.
 
 Now you're ready to rumble!
+
+Most of my changes were in app/containers but you can of course also look at the commit history.
