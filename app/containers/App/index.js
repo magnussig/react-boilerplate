@@ -39,8 +39,7 @@ export default function App() {
       </Helmet>
       <Header />
       <Switch>
-        <Route path="/user/:userName?" component={FeaturePage} />
-        <Route path="/features" component={FeaturePage} />
+        <Route path="/user/:userId?" component={FeaturePage} />
         <Route path="/team/:teamName?" component={HomePage} />
         <Route path="/" component={HomePage} />
         <Route path="" component={NotFoundPage} />

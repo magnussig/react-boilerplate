@@ -30,6 +30,21 @@ const makeSelectLocation = () =>
 const makeSelectTeam = () =>
   createSelector(selectGlobal, globalState => globalState.get('teamId'));
 
+const makeSelectUsers = () =>
+  createSelector(selectGlobal, globalState => globalState.get('users'));
+
+const makeSelectUserId = () =>
+  createSelector(selectGlobal, globalState => globalState.get('userId'));
+
+const makeSelectAllTeams = () =>
+  createSelector(selectGlobal, globalState => globalState.get('allTeams'));
+
+const makeSelectAllUsers = () =>
+  createSelector(selectGlobal, globalState => globalState.get('allUsers'));
+
+const makeSelectCurrTeamLead = () =>
+  createSelector(selectGlobal, globalState => globalState.get('currTeamLead'));
+
 export {
   selectGlobal,
   makeSelectCurrentUser,
@@ -38,4 +53,9 @@ export {
   makeSelectRepos,
   makeSelectLocation,
   makeSelectTeam,
+  makeSelectUsers,
+  makeSelectUserId,
+  makeSelectAllTeams,
+  makeSelectAllUsers,
+  makeSelectCurrTeamLead,
 };

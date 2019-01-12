@@ -3,7 +3,13 @@
  */
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { LOAD_REPOS } from 'containers/App/constants';
-import { reposLoaded, repoLoadingError } from 'containers/App/actions';
+import {
+  reposLoaded,
+  repoLoadingError,
+  setAllTeams,
+  setAllUsers,
+  setCurrTeamLead,
+} from 'containers/App/actions';
 import request from 'utils/request';
 import { makeSelectTeam } from 'containers/App/selectors';
 
@@ -28,8 +34,13 @@ export function* getRepos() {
         request,
         'http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/user/',
       );
+      yield put(setAllUsers(users));
       const usersInTeam = users.filter(u => info.members.includes(u.id));
+      const teamLeader = users.find(u => info.lead === u.id);
+      yield put(setCurrTeamLead(teamLeader));
       info = usersInTeam;
+    } else {
+      yield put(setAllTeams(info));
     }
     yield put(reposLoaded(info, ''));
   } catch (err) {

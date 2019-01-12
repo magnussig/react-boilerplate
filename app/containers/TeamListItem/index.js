@@ -20,7 +20,7 @@ import Wrapper from './Wrapper';
 export class TeamListItem extends React.PureComponent {
   render() {
     const { item, match, selectItem, isTeam } = this.props;
-    const link = isTeam ? `/user/${item.name}` : `/team/${item.name}`;
+    const link = isTeam ? `/user/${item.id}` : `/team/${item.name}`;
     // Put together the content of the repository
     const content = (
       <Wrapper>

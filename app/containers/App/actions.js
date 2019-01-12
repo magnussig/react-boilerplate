@@ -15,7 +15,17 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import {
+  LOAD_REPOS_SUCCESS,
+  LOAD_REPOS,
+  LOAD_REPOS_ERROR,
+  LOAD_USERS_SUCCESS,
+  LOAD_USERS,
+  LOAD_USERS_ERROR,
+  SET_ALL_TEAMS,
+  SET_ALL_USERS,
+  SET_CURR_TEAM_LEAD,
+} from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -56,5 +66,47 @@ export function repoLoadingError(error) {
   return {
     type: LOAD_REPOS_ERROR,
     error,
+  };
+}
+
+export function loadUsers(userId) {
+  return {
+    type: LOAD_USERS,
+    userId,
+  };
+}
+
+export function userLoaded(users) {
+  return {
+    type: LOAD_USERS_SUCCESS,
+    users,
+  };
+}
+
+export function userLoadingError(error) {
+  return {
+    type: LOAD_USERS_ERROR,
+    error,
+  };
+}
+
+export function setAllTeams(teams) {
+  return {
+    type: SET_ALL_TEAMS,
+    teams,
+  };
+}
+
+export function setAllUsers(users) {
+  return {
+    type: SET_ALL_USERS,
+    users,
+  };
+}
+
+export function setCurrTeamLead(lead) {
+  return {
+    type: SET_CURR_TEAM_LEAD,
+    lead,
   };
 }

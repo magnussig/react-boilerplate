@@ -19,8 +19,12 @@ import {
   makeSelectLoading,
   makeSelectError,
   makeSelectTeam,
+  makeSelectAllTeams,
+  makeSelectAllUsers,
+  makeSelectCurrTeamLead,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
+import H3 from 'components/H3';
 import A from 'components/A';
 import ReposList from 'components/ReposList';
 import AtPrefix from './AtPrefix';
@@ -47,29 +51,15 @@ export class HomePage extends React.PureComponent {
   }
 
   render() {
-    const { loading, error, repos, match, location } = this.props;
+    const { loading, error, repos, match, location, currTeamLead } = this.props;
     let { onSelectTeam } = this.props;
     const isTeam = location.pathname.includes('team');
     if (isTeam) onSelectTeam = () => {};
-    const reposListProps = {
-      loading,
-      error,
-      repos,
-      onSelectTeam,
-      match,
-      location,
-      isTeam,
-    };
-    const currTeam = match.params.teamName;
 
     return (
       <article>
         <Helmet>
-          <title>Home Page</title>
-          <meta
-            name="description"
-            content="A React.js Boilerplate application homepage"
-          />
+          <title>Teams and users</title>
         </Helmet>
         <div>
           <CenteredSection>
@@ -83,9 +73,11 @@ export class HomePage extends React.PureComponent {
           <Section>
             <H2>
               {isTeam
-                ? `Members of ${currTeam}:`
+                ? `Members of ${match.params.teamName}:`
                 : 'Click Get teams to view all teams!'}
             </H2>
+            {isTeam &&
+              currTeamLead && <H3>Team lead is: {currTeamLead.name}</H3>}
             <Form onSubmit={this.props.onSubmitForm}>
               <label htmlFor="username">
                 <FormattedMessage {...messages.trymeMessage} />
@@ -102,7 +94,15 @@ export class HomePage extends React.PureComponent {
                 <A onClick={this.props.onSubmitForm}>Get teams</A>
               </label>
             </Form>
-            <ReposList {...reposListProps} />
+            <ReposList
+              loading={loading}
+              error={error}
+              items={repos}
+              onSelect={onSelectTeam}
+              isTeam={isTeam} // TODO: change this to route
+              location={location}
+              match={match}
+            />
           </Section>
         </div>
       </article>
@@ -118,9 +118,13 @@ HomePage.propTypes = {
   username: PropTypes.string,
   onChangeUsername: PropTypes.func,
   onSelectTeam: PropTypes.func,
+  onSelectUser: PropTypes.func,
   teamId: PropTypes.number,
   match: PropTypes.object,
   location: PropTypes.object,
+  allTeams: PropTypes.array,
+  allUsers: PropTypes.array,
+  currTeamLead: PropTypes.object,
 };
 
 export function mapDispatchToProps(dispatch) {
@@ -140,6 +144,9 @@ const mapStateToProps = createStructuredSelector({
   loading: makeSelectLoading(),
   error: makeSelectError(),
   teamId: makeSelectTeam(),
+  allTeams: makeSelectAllTeams(),
+  allUsers: makeSelectAllUsers(),
+  currTeamLead: makeSelectCurrTeamLead(),
 });
 
 const withConnect = connect(
