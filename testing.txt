@@ -1,0 +1,121 @@
+
+> react-boilerplate@3.7.0 pretest C:\Code\bla\react-boilerplate
+> npm run test:clean
+
+
+> react-boilerplate@3.7.0 test:clean C:\Code\bla\react-boilerplate
+> rimraf ./coverage
+
+
+> react-boilerplate@3.7.0 test C:\Code\bla\react-boilerplate
+> cross-env NODE_ENV=test jest --coverage
+
+---------------------------------|----------|----------|----------|----------|-------------------|
+File                             |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+---------------------------------|----------|----------|----------|----------|-------------------|
+All files                        |    75.19 |    68.67 |    73.02 |    77.03 |                   |
+ app                             |      100 |      100 |      100 |      100 |                   |
+  configureStore.js              |      100 |      100 |      100 |      100 |                   |
+  i18n.js                        |      100 |      100 |      100 |      100 |                   |
+  reducers.js                    |      100 |      100 |      100 |      100 |                   |
+ app/components/A                |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/Button           |      100 |      100 |      100 |      100 |                   |
+  A.js                           |      100 |      100 |      100 |      100 |                   |
+  StyledButton.js                |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  buttonStyles.js                |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/Footer           |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  messages.js                    |      100 |      100 |      100 |      100 |                   |
+ app/components/H1               |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/H2               |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/H3               |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/Header           |      100 |      100 |      100 |      100 |                   |
+  A.js                           |      100 |      100 |      100 |      100 |                   |
+  HeaderLink.js                  |      100 |      100 |      100 |      100 |                   |
+  Img.js                         |      100 |      100 |      100 |      100 |                   |
+  NavBar.js                      |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  messages.js                    |      100 |      100 |      100 |      100 |                   |
+ app/components/Img              |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/InfoList         |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/IssueIcon        |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/List             |      100 |      100 |      100 |      100 |                   |
+  Ul.js                          |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/ListItem         |      100 |      100 |      100 |      100 |                   |
+  Item.js                        |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/LoadingIndicator |      100 |      100 |      100 |      100 |                   |
+  Circle.js                      |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/Toggle           |      100 |      100 |      100 |      100 |                   |
+  Select.js                      |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/components/ToggleOption     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+ app/containers/App              |       72 |    41.67 |    63.16 |    77.78 |                   |
+  actions.js                     |       50 |      100 |       50 |       50 |  74,81,88,102,109 |
+  constants.js                   |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  reducer.js                     |    46.15 |    41.67 |      100 |    46.15 |... 70,72,74,76,78 |
+  selectors.js                   |     77.5 |      100 |    65.38 |    92.86 |             34,37 |
+ app/containers/FeaturePage      |     5.26 |        0 |        0 |     5.56 |                   |
+  List.js                        |      100 |      100 |      100 |      100 |                   |
+  ListItem.js                    |      100 |      100 |      100 |      100 |                   |
+  ListItemTitle.js               |      100 |      100 |      100 |      100 |                   |
+  index.js                       |        0 |        0 |        0 |        0 |... 93,100,105,106 |
+  messages.js                    |        0 |      100 |      100 |        0 |               6,8 |
+  saga.js                        |        0 |        0 |        0 |        0 |... 20,21,23,30,31 |
+ app/containers/HomePage         |    64.06 |       36 |       55 |    66.67 |                   |
+  AtPrefix.js                    |      100 |      100 |      100 |      100 |                   |
+  CenteredSection.js             |      100 |      100 |      100 |      100 |                   |
+  Form.js                        |      100 |      100 |      100 |      100 |                   |
+  Input.js                       |      100 |      100 |      100 |      100 |                   |
+  Section.js                     |      100 |      100 |      100 |      100 |                   |
+  actions.js                     |       50 |      100 |       50 |       50 |                42 |
+  constants.js                   |      100 |      100 |      100 |      100 |                   |
+  index.js                       |    54.17 |    23.53 |       40 |    54.55 |... 3,64,65,67,146 |
+  messages.js                    |      100 |      100 |      100 |      100 |                   |
+  reducer.js                     |       80 |       75 |      100 |       80 |                27 |
+  saga.js                        |       50 |       50 |       50 |    58.82 |... 38,39,40,41,45 |
+  selectors.js                   |      100 |      100 |      100 |      100 |                   |
+ app/containers/LanguageProvider |      100 |      100 |      100 |      100 |                   |
+  actions.js                     |      100 |      100 |      100 |      100 |                   |
+  constants.js                   |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  reducer.js                     |      100 |      100 |      100 |      100 |                   |
+  selectors.js                   |      100 |      100 |      100 |      100 |                   |
+ app/containers/LocaleToggle     |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  messages.js                    |      100 |      100 |      100 |      100 |                   |
+ app/containers/NotFoundPage     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |      100 |      100 |      100 |      100 |                   |
+  messages.js                    |      100 |      100 |      100 |      100 |                   |
+ app/containers/TeamListItem     |     87.5 |       50 |       50 |     87.5 |                   |
+  InfoLink.js                    |      100 |      100 |      100 |      100 |                   |
+  Wrapper.js                     |      100 |      100 |      100 |      100 |                   |
+  index.js                       |    83.33 |       50 |       50 |    83.33 |                25 |
+ app/utils                       |      100 |      100 |      100 |      100 |                   |
+  checkStore.js                  |      100 |      100 |      100 |      100 |                   |
+  constants.js                   |      100 |      100 |      100 |      100 |                   |
+  history.js                     |      100 |      100 |      100 |      100 |                   |
+  injectReducer.js               |      100 |      100 |      100 |      100 |                   |
+  injectSaga.js                  |      100 |      100 |      100 |      100 |                   |
+  reducerInjectors.js            |      100 |      100 |      100 |      100 |                   |
+  request.js                     |      100 |      100 |      100 |      100 |                   |
+  sagaInjectors.js               |      100 |      100 |      100 |      100 |                   |
+---------------------------------|----------|----------|----------|----------|-------------------|

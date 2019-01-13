@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
 
-import RepoListItem from 'containers/RepoListItem';
+import TeamListItem from 'containers/TeamListItem';
 import List from 'components/List';
 import LoadingIndicator from 'components/LoadingIndicator';
 import InfoList from '../index';
@@ -25,31 +25,26 @@ describe('<InfoList />', () => {
   });
 
   it('should render the repositories if loading was successful', () => {
-    const info = [
+    const items = [
       {
-        owner: {
-          login: 'mxstbr',
-        },
-        html_url: 'https://github.com/react-boilerplate/react-boilerplate',
-        name: 'react-boilerplate',
-        open_issues_count: 20,
-        full_name: 'react-boilerplate/react-boilerplate',
+        "id": 1,
+        "name": "great team"
       },
     ];
     const renderedComponent = shallow(
-      <InfoList info={info} error={false} />,
+      <InfoList items={items} error={false} />,
     );
 
     expect(
       renderedComponent.contains(
-        <List items={info} component={RepoListItem} />,
+        <List items={items} component={TeamListItem} />,
       ),
     ).toEqual(true);
   });
 
   it('should not render anything if nothing interesting is provided', () => {
     const renderedComponent = shallow(
-      <InfoList info={false} error={false} loading={false} />,
+      <InfoList items={false} error={false} loading={false} />,
     );
 
     expect(renderedComponent.html()).toEqual(null);

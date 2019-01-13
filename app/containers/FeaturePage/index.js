@@ -50,16 +50,17 @@ export class FeaturePage extends React.Component {
           The users real name is: {users.name}
           <br />
         </p>
-        {users && allTeams && (
+        {users &&
+          allTeams && (
           <div>
             <h2>{users.username} teams:</h2>
-              <ul>
-              {users.member_teams.map(m => (
+            <ul>
+              { users.member_teams.map(m => (
                 <li key={m}>{allTeams.find(t => m === t.id).name}</li>
               ))}
             </ul>
             {users.lead_teams.length !== 0 && (
-                <div>
+              <div>
                 <h2>{users.username} is team lead in:</h2>
                 <ul>
                   {users.lead_teams.map(m => (
@@ -67,7 +68,7 @@ export class FeaturePage extends React.Component {
                   ))}
                 </ul>
               </div>
-              )}
+            )}
           </div>
         )}
       </div>

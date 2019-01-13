@@ -10,6 +10,13 @@ describe('appReducer', () => {
       loading: false,
       error: false,
       currentUser: false,
+      userId: null,
+      allUsers: null,
+      users: null,
+      currTeamLead: null,
+      allTeams: null,
+      teamId: null,
+      username: '',
       userData: fromJS({
         repositories: false,
       }),

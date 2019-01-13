@@ -30,10 +30,10 @@ describe('getInfo Saga', () => {
   it('should dispatch the infoLoaded action if it requests the data successfully', () => {
     const response = [
       {
-        name: 'First repo',
+        name: 'first team',
       },
       {
-        name: 'Second repo',
+        name: 'second team',
       },
     ];
     const putDescriptor = getInfoGenerator.next(response).value;

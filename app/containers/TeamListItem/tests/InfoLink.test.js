@@ -4,30 +4,30 @@ import { enzymeFind } from 'styled-components/test-utils';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 
-import IssueLink from '../IssueLink';
+import RepoLink from '../InfoLink';
 
-describe('<IssueLink />', () => {
+describe('<RepoLink />', () => {
   it('should match the snapshot', () => {
-    const renderedComponent = renderer.create(<IssueLink />).toJSON();
+    const renderedComponent = renderer.create(<RepoLink />).toJSON();
     expect(renderedComponent).toMatchSnapshot();
   });
 
   it('should have a className attribute', () => {
-    const wrapper = mount(<IssueLink />);
-    const renderedComponent = enzymeFind(wrapper, IssueLink);
+    const wrapper = mount(<RepoLink />);
+    const renderedComponent = enzymeFind(wrapper, RepoLink);
     expect(renderedComponent.prop('className')).toBeDefined();
   });
 
   it('should adopt a valid attribute', () => {
     const id = 'test';
-    const wrapper = mount(<IssueLink id={id} />);
-    const renderedComponent = enzymeFind(wrapper, IssueLink);
+    const wrapper = mount(<RepoLink id={id} />);
+    const renderedComponent = enzymeFind(wrapper, RepoLink);
     expect(renderedComponent.prop('id')).toEqual(id);
   });
 
   it('should not adopt an invalid attribute', () => {
-    const wrapper = mount(<IssueLink attribute="test" />);
-    const renderedComponent = enzymeFind(wrapper, IssueLink);
+    const wrapper = mount(<RepoLink attribute="test" />);
+    const renderedComponent = enzymeFind(wrapper, RepoLink);
     expect(renderedComponent.prop('attribute')).toBeUndefined();
   });
 });

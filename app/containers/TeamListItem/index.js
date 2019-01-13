@@ -1,5 +1,5 @@
 /**
- * RepoListItem
+ * TeamListItem
  *
  * Lists the name and the issue count of a repository
  */
@@ -12,8 +12,6 @@ import { FormattedNumber } from 'react-intl';
 
 import { makeSelectCurrentUser } from 'containers/App/selectors';
 import ListItem from 'components/ListItem';
-import IssueIcon from './IssueIcon';
-import IssueLink from './IssueLink';
 import InfoLink from './InfoLink';
 import Wrapper from './Wrapper';
 
