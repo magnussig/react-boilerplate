@@ -11,4 +11,10 @@ This is a fork of https://github.com/react-boilerplate/react-boilerplate for Tem
 
 Now you're ready to rumble!
 
-Most of my changes were in app/containers but you can of course also look at the commit history. Am still working on the tests and adapting them to my added functionality.
+Most of my changes were in app/containers but you can of course also look at the commit history. 
+
+## Testing
+
+Am still working on the tests and adapting them to my added functionality of the boilerplate app.
+
+To run the tests: `npm run test`
