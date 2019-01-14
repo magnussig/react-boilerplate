@@ -22,26 +22,3 @@ Object {
   },
 }
 `;
-
-exports[`getInfo Saga should dispatch the infoLoaded action if it requests the data successfully 1`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "SELECT": Object {
-    "args": Array [],
-    "selector": [Function],
-  },
-}
-`;
-
-exports[`getInfo Saga should dispatch the infoLoaded action if it requests the data successfully 2`] = `
-Object {
-  "@@redux-saga/IO": true,
-  "CALL": Object {
-    "args": Array [
-      "http://tempo-test.herokuapp.com/7d1d085e-dbee-4483-aa29-ca033ccae1e4/1/team/",
-    ],
-    "context": null,
-    "fn": [Function],
-  },
-}
-`;

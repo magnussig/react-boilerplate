@@ -1,7 +1,17 @@
 import { fromJS } from 'immutable';
-
 import appReducer from '../reducer';
-import { loadInfo, infoLoaded, infoLoadingError } from '../actions';
+import {
+  loadInfo,
+  infoLoaded,
+  infoLoadingError,
+  loadUsers,
+  userLoaded,
+  userLoadingError,
+  setAllTeams,
+  setAllUsers,
+  setCurrTeamLead,
+  changeUsername,
+} from '../actions';
 
 describe('appReducer', () => {
   let state;
@@ -29,10 +39,11 @@ describe('appReducer', () => {
     expect(appReducer(undefined, {})).toEqual(expectedResult);
   });
 
-  /*it('should handle the loadInfo action correctly', () => {
+  it('should handle the loadInfo action correctly', () => {
     const expectedResult = state
       .set('loading', true)
       .set('error', false)
+      .set('teamId', undefined)
       .setIn(['userData', 'repositories'], false);
 
     expect(appReducer(state, loadInfo())).toEqual(expectedResult);
@@ -41,7 +52,8 @@ describe('appReducer', () => {
   it('should handle the infoLoaded action correctly', () => {
     const fixture = [
       {
-        name: 'My Repo',
+        id: 1,
+        name: 'My kings',
       },
     ];
     const username = 'test';
@@ -53,7 +65,7 @@ describe('appReducer', () => {
     expect(appReducer(state, infoLoaded(fixture, username))).toEqual(
       expectedResult,
     );
-  });*/
+  });
 
   it('should handle the infoLoadingError action correctly', () => {
     const fixture = {
@@ -65,4 +77,43 @@ describe('appReducer', () => {
       expectedResult,
     );
   });
+
+  it('should handle the loadUsers action correctly', () => {
+    const expectedResult = state
+      .set('loading', true)
+      .set('error', false)
+      .set('userId', undefined)
+      .setIn(['userData', 'repositories'], false);
+
+    expect(appReducer(state, loadUsers())).toEqual(expectedResult);
+  });
+
+  it('should handle the userLoaded action correctly', () => {
+    const fixture = [
+      {
+        id: 1,
+        name: 'My king',
+      },
+    ];
+    const expectedResult = state
+      .set('loading', false)
+      .set('users', fixture);
+
+    expect(appReducer(state, userLoaded(fixture))).toEqual(
+      expectedResult,
+    );
+  });
+
+
+  it('should handle the userLoadingError action correctly', () => {
+    const fixture = {
+      msg: 'Not found',
+    };
+    const expectedResult = state.set('error', fixture).set('loading', false);
+
+    expect(appReducer(state, userLoadingError(fixture))).toEqual(
+      expectedResult,
+    );
+  });
+
 });
