@@ -16,4 +16,5 @@ Most of my changes were in app/containers but you can of course also look at the
 ## Testing
 
 Am still working on the tests and adapting them to my added functionality of the boilerplate app.
+
 To run the tests: `npm run test`
