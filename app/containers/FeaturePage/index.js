@@ -102,7 +102,7 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'app', reducer });
+const withReducer = injectReducer({ key: 'feature', reducer });
 const withSaga = injectSaga({ key: 'feature', saga });
 
 export default compose(

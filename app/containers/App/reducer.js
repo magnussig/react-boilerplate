@@ -40,6 +40,7 @@ const initialState = fromJS({
   allTeams: null,
   allUsers: null,
   currTeamLead: null,
+  info: null,
 });
 
 function appReducer(state = initialState, action) {

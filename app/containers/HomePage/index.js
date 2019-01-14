@@ -47,21 +47,14 @@ export class HomePage extends React.PureComponent {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
-    this.unlisten = this.props.history.listen((location, action) => {
-      console.log("on route change");
-    });
-  }
-
-  componentWillUnmount() {
-    this.unlisten();
   }
 
   render() {
     const { loading, error, info, match, location, currTeamLead, username } = this.props;
     let { onSelectTeam } = this.props;
-    const isTeam = location.pathname.includes('team');
+    const isTeam = location && location.pathname.includes('team');
     if (isTeam) onSelectTeam = () => {};
-    const reposFiltered = username === '' ?
+    const reposFiltered = (username === '' && !info) ?
       info : info.filter(r => r.name.toLowerCase().includes(username.toLowerCase()));
 
     return (
@@ -164,7 +157,7 @@ const withConnect = connect(
 );
 
 const withReducer = injectReducer({ key: 'home', reducer });
-const withSaga = injectSaga({ key: 'home', saga });
+const withSaga = injectSaga({ key: 'feature', saga });
 
 export default compose(
   withReducer,
